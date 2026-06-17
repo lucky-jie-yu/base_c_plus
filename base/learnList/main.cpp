@@ -26,7 +26,8 @@ int main() {
 
     // 插入和删除
     auto it = lst.begin();
-    lst.insert(it, 3);  // 链表: 3, 7, 5
+    lst.insert(it, 3);  // 链表: 3, 7, 5,insert返回的新迭代器只是临时值，你没存到任何变量，
+                            //  原来的变量 it 自始至终没变，依然指向原来的节点（7）
     lst.erase(++it);    // 链表: 3, 7
 
     // 打印链表

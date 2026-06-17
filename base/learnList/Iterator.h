@@ -6,6 +6,7 @@
 #define LEARNLIST_ITERATOR_H
 #include "Node.h"
 #include <iostream>
+#include <iterator>
 template <typename T>
 class List;
 
@@ -22,12 +23,12 @@ public:
 
     // Dereference operator
     reference operator*() const {
-        return node_ptr->value;
+        return node_ptr->data;
     }
 
     // Arrow operator
     pointer operator->() const {
-        return &(node_ptr->value);
+        return &(node_ptr->data);
     }
 
     // Pre-increment
@@ -39,7 +40,7 @@ public:
     }
 
     // Post-increment
-    self_type& operator++(int) {
+    self_type operator++(int) {
         self_type temp = *this;
         ++(*this);
         return temp;
@@ -54,7 +55,7 @@ public:
     }
 
     // Post-decrement
-    self_type& operator--(int) {
+    self_type operator--(int) {
         self_type temp = *this;
         --(*this);
         return temp;
